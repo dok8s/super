@@ -4,7 +4,7 @@ require_once('global.php');
 isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['REMOTE_ADDR']=$_SERVER['HTTP_X_FORWARDED_FOR'];
 $ip_addr = $_SERVER['REMOTE_ADDR'];
 
-$dbhost = "114.215.154.112";
+$dbhost = "";
 $dbuser = "bjfxzf";
 $dbpass = "123456";
 $dbname = "bjfxzf";
