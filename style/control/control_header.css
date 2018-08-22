@@ -1,0 +1,17 @@
+td{font-family: "Arial";font-size: 12px;}
+.sline {padding-top: 3px;padding-left: 6px;white-space: nowrap;}
+a:link {  text-decoration: none; color: #0033CC}
+a:visited {text-decoration: none;color: #0033CC;}
+a:hover {text-decoration: none; color: #FF6600;}
+.top_color {padding-top: 3px; padding-right: 3px; padding-left: 7px ;background-color: #990000;color: #FFFFFF;}
+.coolBar {background-color: #ECE9D8;border-top-style: solid;border-bottom-style: ridge;border-top-color: #2F4540;border-bottom-color: #A0998F;border-top-width: 1px;border-bottom-width: 2px;}
+.coolButton{text-align: center;cursor: hand;}
+.rig {
+	position: absolute;
+	color: #FFFFFF;
+	right: 5%;
+	z-index: 3;
+}
+.rig a:link, .rig  a:visited{color: #FFFFFF;text-decoration: none;}
+.rig a:hover,.rig a:active {color: #FFFF00;}
+
