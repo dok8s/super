@@ -1057,7 +1057,6 @@ function ShowData_FS(obj_table,GameData,data_amount){
   <frame name="body_browse" src="real_wagers.php?uid=<?=$uid?>">
 </frameset>
 <noframes><body bgcolor="#FFFFFF">
-
 </body></noframes>
 </html>
 

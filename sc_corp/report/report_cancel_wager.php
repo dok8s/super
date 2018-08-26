@@ -116,12 +116,34 @@ function report_bg(){
 	document.getElementById(date_num).className="report_c";
 }
 </script>
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/calendar.css">
+<link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+<link rel="stylesheet" href="/style/home.css" type="text/css">
+<script type="text/javascript">
+    // 等待所有加载
+    $(window).load(function(){
+        $('body').addClass('loaded');
+        $('#loader-wrapper .load_title').remove();
+    });
+</script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
-<FORM id="myFORM" ACTION="" METHOD=POST onSubmit="return onSubmit();" name="FrmData">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<FORM id="myFORM" ACTION="" METHOD=POST onSubmit="return onSubmit();" name="FrmData" style="padding-top: 10px;">
 <input type=HIDDEN name="uid" value="<?=$uid?>">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
+<table width="780" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
 	<tr>
-		<td class="m_tline">
+		<td class="">
 			<table border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="60">&nbsp;&nbsp;报表管理:</td>
@@ -146,7 +168,6 @@ function report_bg(){
 				</tr>
 			</table>
 		</td>
-		<td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 	</tr>
 	<tr>
 		<td colspan="2" height="4"></td>
@@ -155,7 +176,7 @@ function report_bg(){
 
 <table><tr><td>
 
-<table width="660" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed">
+<table width="660" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed" style="margin-left:20px;margin-bottom: 10px;">
 	<tr class="m_bc">
 		<td width="100" class="m_title_re"> 日期区间: </td>
 		<td colspan="5">

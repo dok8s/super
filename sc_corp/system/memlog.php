@@ -113,14 +113,13 @@ input,select {vertical-align:middle;}
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
 
- <table width="1000" border="0" cellspacing="0" cellpadding="0">
+ <table width="1000" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;margin-top: 10px;">
     <tr>
-      <td class="m_tline">&nbsp;会员在线－<font color="#CC0000">日志</font>&nbsp;
+      <td class="">&nbsp;会员在线－<font color="#CC0000">日志</font>&nbsp;
 	  <input name="buttonF5" id="F5" value="更新" type="button" onClick="reload()">&nbsp;&nbsp;
 	  设置为<input type="text" id='update_sec' name="update_sec" value='<?=$update_sec?>' size='3'>秒自动更新&nbsp;
 	  <input name="buttonF5" value="保存" type="button" onClick="update_sec_save()">&nbsp;&nbsp;
         <span id="timeinfo"></span>-- 20分内在线人数<font color=red><b>(<span id="mem_num"></span>)</b></font>&nbsp;&nbsp;&nbsp;-- 会员帐号或其部分:<INPUT TYPE='text' size=10 NAME='so_log_name' id='so_log_name' value=''> <input name=button type=button onclick='so_log()' value='搜索'> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
-      <td width="34"><img src="/images/control/top_04.gif" width="30" height="24"></td>
     </tr>
   </table>
  <table width="774" border="0" cellspacing="0" cellpadding="0">
@@ -130,7 +129,7 @@ input,select {vertical-align:middle;}
  </table>
 
 
-<table id="glist_table" border="0" cellspacing="1" cellpadding="0"  bgcolor="006255" class="m_tab" width="900">
+<table id="glist_table" border="0" cellspacing="1" cellpadding="0"  bgcolor="006255" class="m_tab" width="900" style="margin-left:20px;margin-bottom: 10px;">
   <tr class="m_title_ft">
 <?
 if($setdata['d0_mem_online_aglog']==1){

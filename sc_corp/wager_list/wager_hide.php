@@ -58,7 +58,35 @@ if ($active==3 && $setdata['d0_wager_hide_deluser']==1){
 	$sql="update web_member set hidden=0 where super='$agname' and id=$mid";
 	mysql_query( $sql);
 }
+$level=$_REQUEST['level']?$_REQUEST['level']:6;
 ?>
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+<SCRIPT language="javascript" src="/js/member.js"></script>
+<SCRIPT language=javaScript>
+    var uid='<?=$uid?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/sc_corp/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/sc_corp/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/sc_corp/members/ag_members.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/sc_corp/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/sc_corp/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        } else  {
+            self.location = '/sc_corp/su_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</SCRIPT>
 <html>
 <head>
 <title>main</title>
@@ -69,6 +97,17 @@ if ($active==3 && $setdata['d0_wager_hide_deluser']==1){
 -->
 </style>
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/calendar.css">
+    <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+    <link rel="stylesheet" href="/style/home.css" type="text/css">
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 <SCRIPT language="javascript" src="/js/member.js"></script>
 <SCRIPT>
 
@@ -89,7 +128,25 @@ if ($active==3 && $setdata['d0_wager_hide_deluser']==1){
 </SCRIPT>
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
-<FORM NAME="myFORM" ACTION="wager_hide.php?uid=<?=$uid?>" METHOD=POST>
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">总代理</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">代理</div>
+    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">会员</div>
+    <div id="general_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">子帐号</div>
+    <? if($setdata['d0_wager_add']==1){ ?>
+        <div id="important_btn1" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">添单帐号</div>
+    <? } ?>
+    <? if($setdata['d0_wager_hide']==1){ ?>
+        <div id="personal_btn1" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">隐单帐号</div>
+    <? } ?>
+</div>
+<FORM NAME="myFORM" ACTION="wager_hide.php?uid=<?=$uid?>" METHOD=POST style="padding-top: 62px;">
 <input type="hidden" name="agent_id" value="<?=$agid?>">
 <?
 $sql = "select passwd,ID,Memname,pay_type,money,Alias,Credit,ratio,date_format(AddDate,'%m-%d / %H:%i') as AddDate,pay_type,Agents,OpenType from web_member where super='$agname' and hidden=1 and Status='$enabled' order by ".$sort." ".$orderby;
@@ -101,9 +158,9 @@ $offset=$page*$page_size;
 $mysql=$sql."  limit $offset,$page_size;";
 $result = mysql_query( $mysql);
 ?>
-<table width="775" border="0" cellspacing="0" cellpadding="0">
+<table width="775" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
   <tr>
-	<td class="m_tline">
+	<td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td>&nbsp;&nbsp;隐单会员            <select name="enable" onChange="self.myFORM.submit()" class="za_select" >
@@ -140,7 +197,6 @@ $result = mysql_query( $mysql);
           </tr>
         </table>
 	</td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 </tr>
 <tr>
 	<td colspan="2" height="4"></td>
@@ -157,7 +213,7 @@ if ($cou==0){
 <?
 }else{
  ?>
-  <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="E3D46E" class="m_tab">
+  <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="E3D46E" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
     <tr class="m_title">
       <td width="60">会员名称</td>
       <td width="70">会员帐号</td>

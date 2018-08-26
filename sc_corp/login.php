@@ -44,7 +44,7 @@ if ($count==0){
 <title>web</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<frameset rows="51,*" frameborder="NO" border="0" framespacing="0">
+<frameset rows="75,*" frameborder="NO" border="0" framespacing="0">
 <frame name="topFrame" scrolling="NO" noresize src="header.php?langx=<?=$langx?>&uid=<?=$uid?>">
 <frame name="main" src="body_home.php?langx=<?=$langx?>&uid=<?=$uid?>">
 </frameset>

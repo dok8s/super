@@ -142,6 +142,7 @@ $page_count=ceil($cou/$page_size);
 $offset=$page*$page_size;
 $mysql=$sql."  limit $offset,$page_size;";
 $result = mysql_query( $mysql);
+$level=$_REQUEST['level']?$_REQUEST['level']:1;
 if ($cou==0){
 	$page_count=1;
 }
@@ -151,12 +152,38 @@ if ($cou==0){
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <style type="text/css">
 <!--
 .m_title_suag {  background-color: #CD9A99; text-align: center}
 -->
 </style>
 <SCRIPT language=javaScript src="/js/agents<?=$body_js?>.js" type=text/javascript></SCRIPT>
+<SCRIPT language=javaScript>
+    var uid='<?=$uid?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/sc_corp/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/sc_corp/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/sc_corp/members/ag_members.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/sc_corp/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/sc_corp/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        } else  {
+            self.location = '/sc_corp/su_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</SCRIPT>
 <SCRIPT language=javaScript>
 <!--
  function onLoad()
@@ -176,10 +203,22 @@ if ($cou==0){
 </SCRIPT>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
-<form name="myFORM" action="./body_super_agents.php?uid=<?=$uid?>" method=POST>
-<table width="840" border="0" cellspacing="0" cellpadding="0">
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">总代理</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">代理</div>
+    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">会员</div>
+    <div id="general_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">子帐号</div>
+    <? if($setdata['d0_wager_add']==1){ ?>
+        <div id="important_btn1" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">添单帐号</div>
+    <? } ?>
+    <? if($setdata['d0_wager_hide']==1){ ?>
+        <div id="personal_btn1" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">隐单帐号</div>
+    <? } ?>
+</div>
+<form name="myFORM" action="./body_super_agents.php?uid=<?=$uid?>" method=POST style="padding-top: 62px;">
+<table width="840" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
   <tr>
-    <td class="m_tline">
+    <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td>&nbsp;&nbsp;<?=$cor_agents?>:</td>
@@ -234,10 +273,6 @@ if ($cou==0){
           </tr>
         </table>
     </td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-  </tr>
-  <tr>
-    <td colspan="2" height="4"></td>
   </tr>
 </table>
 <?
@@ -245,7 +280,7 @@ if ($cou==0){
 if ($cou==0){
 $page_count=1;
 ?>
-<table width="860" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab">
+<table width="860" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
     <tr class="m_title_suag">
       <td height="30" align=center>目前无任何总代理</td>
     </tr>
@@ -253,7 +288,7 @@ $page_count=1;
 <?
 }else{
  ?>
-  <table width="" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab">
+  <table width="" border="0" cellspacing="1" cellpadding="0"  bgcolor="976061" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
     <tr class="m_title_suag"  bgcolor="86C0A6">
       <td width="60">股东</td>
       <td width="76"><?=$cor_name1?></td>

@@ -179,9 +179,9 @@ window.onload=beginrefresh
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
- <table width="773" border="0" cellspacing="0" cellpadding="0">
+ <table width="773" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
     <tr>
-      <td class="m_tline" width="746">&nbsp;线上数据－<font color="#CC0000">日志</font><font color="#CC0000">&nbsp;</font>&nbsp;&nbsp;&nbsp;
+      <td class="" width="746">&nbsp;线上数据－<font color="#CC0000">日志</font><font color="#CC0000">&nbsp;</font>&nbsp;&nbsp;&nbsp;
 		
 	  <input name="buttonF5" id="F5" value="更新" type="button" onclick="reload()" class='za_button'>&nbsp;&nbsp;
 	  设置为<input type="text" id='update_sec' name="update_sec" value='<?=$update_sec?>' size='3'>秒自动更新&nbsp;
@@ -189,11 +189,9 @@ window.onload=beginrefresh
 
         <span id="timeinfo"></span>-- 上线提醒时间：<input type="text" id='sound_sec' name="sound_sec" value='<?=$sound_sec?>' size='3'>秒&nbsp;
 	  <input name="buttonF6" value="保存" type="button" onclick="sound_sec_save()"  class='za_button'> -- <a href="javascript:history.go( -1 );">回上一页</a></td>
-
-      <td width="34"><img src="/images/control/top_04.gif" width="30" height="24"></td>
     </tr>
   </table>
-  <table width="774" border="0" cellspacing="0" cellpadding="0">
+  <table width="774" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
     <tr>
       <td width="774" height="4"></td>
     </tr>

@@ -90,6 +90,7 @@ if ($addNew=='Y'){
 }else{
 	$sql = "select * from web_super where subname='$agname' and subuser=1 order by ".$sort." ".$orderby;
 	$result = mysql_query($sql);
+    $level=$_REQUEST['level']?$_REQUEST['level']:4;
 
 ?>
 <html>
@@ -97,12 +98,38 @@ if ($addNew=='Y'){
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <style type="text/css">
 <!--
 .m_title { background-color: #86C0A6; text-align: center}
 -->
 </style>
 <script language="javascript" src="/js/chk_keycode.js"></script>
+<SCRIPT language=javaScript>
+    var uid='<?=$uid?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/sc_corp/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/sc_corp/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/sc_corp/members/ag_members.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/sc_corp/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/sc_corp/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        } else  {
+            self.location = '/sc_corp/su_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
+</SCRIPT>
 <SCRIPT language=javaScript>
 <!--
 function onLoad(){
@@ -117,14 +144,43 @@ function onLoad(){
 }
 // -->
 </SCRIPT>
+    <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/calendar.css">
+    <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+    <link rel="stylesheet" href="/style/home.css" type="text/css">
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 <script language="javascript" src="/js/ag_subuser.js"></script>
 </head>
 <!---->
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()">
-<table width="780" border="0" cellspacing="0" cellpadding="0">
-	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">总代理</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">代理</div>
+    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">会员</div>
+    <div id="general_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">子帐号</div>
+    <? if($setdata['d0_wager_add']==1){ ?>
+        <div id="important_btn1" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">添单帐号</div>
+    <? } ?>
+    <? if($setdata['d0_wager_hide']==1){ ?>
+        <div id="personal_btn1" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">隐单帐号</div>
+    <? } ?>
+</div>
+	<form name="myFORM" action="su_subuser.php?uid=<?=$uid?>" method="POST" style="padding-top: 62px;">
+        <table width="780" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
 		<tr>
-			<td class="m_tline">
+			<td class="">
 				<table border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td nowrap>&nbsp;&nbsp;排序&nbsp;:&nbsp;</td>
@@ -151,14 +207,10 @@ function onLoad(){
 					</tr>
 				</table>
 			</td>
-			<td><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
 		</tr>
-		<tr>
-			<td colspan="2" height="4"></td>
-		</tr>
+        </table>
 	</form>
-</table>
-<table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab">
+<table width="780" border="0" cellspacing="1" cellpadding="0" bgcolor="#4B8E6F" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
 	<tr class="m_title">
 		<td width="150">帐号</td>
 		<td width="150">密码</td>

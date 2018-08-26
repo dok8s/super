@@ -39,64 +39,122 @@ $messages=$row['msg_member'];
 .m_bc { background-color: #C9DBDF; padding-left: 7px }
 -->
 </style>
+    <link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+    <link rel="stylesheet" href="./css/loader.css" type="text/css">
+    <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
 <link rel="stylesheet" href="/style/control/calendar.css">
 <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
-
+    <link rel="stylesheet" href="/style/home.css" type="text/css">
+    <link rel=stylesheet type=text/css href="/style/nav/css/zzsc.css">
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+        function go_web(sw1,sw2,sw3) {
+            if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+            else{window.open('trans.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+        }
+    </script>
 <style type="text/css">
 <!--
 .m_title_ce {background-color: #669999; text-align: center; color: #FFFFFF}
 -->
 </style>
-<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" >
-<table width="750" border="0" cellspacing="1" cellpadding="0" class="m_tab_ed" >
-  <tr> 
-    <td width="150" align="right">系统公告</td>
-    <td width="520"><marquee scrollDelay=200><?=$messages?></marquee></td>
-    <td align="center"> <A HREF="javascript://" onClick="javascript: window.showModalDialog('scroll_history.php?uid=<?=$uid?>&langx=zh-cn','','help:no')"> 
-      历史讯息</a> </td>
-  </tr>
-  <tr align="center" > 
-    <td colspan="3" bgcolor="6EC13E">&nbsp; </td>
-  </tr>
-</table>
-<div id="user_msg" class="user_msg">
-	<span>帐号新增及密码更改提示</span>
-	<div id="table_master">
-		<table cellpadding="0" cellspacing="0" id="table_header">
-		  <tbody>
-			<tr class="msg_td">
-				<td>时间</td>
-				<td>操作者</td>
-				<td>项目</td>
-				<td>帐号</td>
-				<td>阶层</td>
-			</tr>
-			<?
-if($ag==""){
-	$sql="select  * from agents_log  where Status=2 and M_czz='$agname' order by M_DateTime desc";
-}else{
-	$sql="select  * from agents_log  where Status=2 and (".$ag." M_czz='$agname') order by M_DateTime desc";
-}
-$result = mysql_query($sql);
-while ($row = mysql_fetch_array($result)){
-?>
-			<tr>
-				<td><?=$row["M_DateTime"]?></td>
-				<td><?=$row["M_czz"]?></td>
-				<td><?=$row["M_xm"]?></td>
-				<td><?=$row["M_user"]?></td>
-				<td><?=$row["M_jc"]?></td>
-			</tr>
-<?
-}
-?>
-			</tbody>
-		</table>
-  </div>
-	
+<body bgcolor="#edcbcb" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" >
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
 </div>
+<div id="firstpane" class="menu_list" style="float:left;padding-right: 10px;width: 230px;">
+    <p class="menu_head current" style="width: 223px;">即时注单</p>
+    <div style="display:block" class=menu_body >
+        <a onClick="go_web(0,0,'/sc_corp/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
+    </div>
+    <p class="menu_head" style="width: 223px;">早餐注单</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
+    </div>
+    <p class="menu_head" style="width: 223px;">注单管理</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/aceept.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">异常注单</a>
+        <a onClick="go_web(1,2,'/sc_corp/wager_list/danger_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">走地危险</a>
+        <a onClick="go_web(1,3,'/sc_corp/wager_list/real_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">注单查询</a>
+    </div>
+</div>
+<script type=text/javascript>
+    $(document).ready(function(){
+        $("#firstpane .menu_body:eq(0)").show();
+        $("#firstpane p.menu_head").click(function(){
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+        $("#secondpane .menu_body:eq(0)").show();
+        $("#secondpane p.menu_head").mouseover(function(){
+            $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
 
+    });
+</script>
+<div id="body_show" style="float:left;"><div>
+    <div name="MaxTag" id="home" src="/js/home.js" linkage="home">
+
+        <div id="home_contain" class="home_contain" onresize="setDivSize(this)" style="width: 67%;min-width: 1200px;">
+            <div id="home_box" class="home_box">
+                <div id="top_title" class="top_title"><span>帐号新增及密码更改提示</span></div>
+                <div id="status_contain" class="status_contain" style="width: 67%;float:left;">
+                    <div id="status_title" class="status_title">
+                        <span class="title_box" style="min-width: 150px;">时间</span>
+                        <span class="title_box2 margin_right" style="min-width: 60px;">操作者</span>
+                        <span class="title_box2" style="min-width: 60px;">项目</span>
+                        <span class="title_box2" style="min-width: 60px;">帐号</span>
+                        <span class="title_box3" style="min-width: 60px;">阶层</span>
+                    </div>
+                    <div id="member" class="acc_box">
+                        <div style="height:205px;overflow-y:auto">
+                            <?
+                            if($ag==""){
+                                $sql="select  * from agents_log  where Status=2 and M_czz='$agname' order by M_DateTime desc";
+                            }else{
+                                $sql="select  * from agents_log  where Status=2 and (".$ag." M_czz='$agname') order by M_DateTime desc";
+                            }
+                            $result = mysql_query($sql);
+                            while ($row = mysql_fetch_array($result)){
+                                ?>
+                                <div id="last_login" class="acc_box">
+                                    <span class="info_box" style="min-width: 150px;"><?=$row["M_DateTime"]?></span>
+                                    <span class="info_box2 margin_right red" style="min-width: 60px;"><font id="member_suspended"><?=$row["M_czz"]?></font></span>
+                                    <span class="info_box2 black" style="min-width: 60px;"><font id="member_view"><?=$row["M_xm"]?></font></span>
+                                    <span class="info_box2 gray" style="min-width: 60px;"><font id="member_inactive"><?=$row["M_user"]?></font></span>
+                                    <span class="info_box3 green" style="min-width: 60px;"><font id="member_active"><?=$row["M_jc"]?></font></span>
+                                </div>
+                                <?
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>
 <?

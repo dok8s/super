@@ -158,13 +158,59 @@ function chg_league(){
 	var obj_league = document.getElementById('sel_lid');
  	parent.body_var.location="./real_wagers_var.php?uid=<?=$uid?>&rtype="+parent.stype_var+"&set_account="+set_account+"&league_id="+obj_league.value+"&page_no="+parent.pg;
  }
+ function go_web(sw1,sw2,sw3) {
+     if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+     else{window.open('/sc_corp/trans.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+ }
 </SCRIPT>
 </head>
+<link rel=stylesheet type=text/css href="/style/nav/css/zzsc.css">
+<script src="/style/nav/js/jquery.min.js" type="text/javascript"></script>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()" onUnload="onUnload()">
-<FORM NAME="REFORM" ACTION="" METHOD=POST>
+<div id="firstpane" class="menu_list" style="float:left;padding-right: 10px;width: 230px;">
+    <p class="menu_head current" style="width: 185px;">即时注单</p>
+    <div style="display:block" class=menu_body >
+        <a onClick="go_web(0,0,'/sc_corp/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球</a>
+    </div>
+    <p class="menu_head" style="width: 185px;">早餐注单</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">足球早餐</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">篮球/美足早餐</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">棒球早餐</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">网球早餐</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">排球早餐</a>
+    </div>
+    <p class="menu_head" style="width: 185px;">注单管理</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">流水注单</a>
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/aceept.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">异常注单</a>
+        <a onClick="go_web(1,2,'/sc_corp/wager_list/danger_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">走地危险</a>
+        <a onClick="go_web(1,3,'/sc_corp/wager_list/real_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">注单查询</a>
+    </div>
+</div>
+<script type=text/javascript>
+    $(document).ready(function(){
+        $("#firstpane .menu_body:eq(0)").show();
+        $("#firstpane p.menu_head").click(function(){
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+        $("#secondpane .menu_body:eq(0)").show();
+        $("#secondpane p.menu_head").mouseover(function(){
+            $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+
+    });
+</script>
+<FORM NAME="REFORM" ACTION="" METHOD=POST style="margin-top:10px;float: left;">
   <table width="800" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td class="m_tline">
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td width="60" >&nbsp;&nbsp;<?=$rel_contorl?>:</td>
@@ -192,7 +238,6 @@ function chg_league(){
           </tr>
         </table>
       </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
     </tr>
     <tr>
       <td colspan="2" height="4"></td>

@@ -35,14 +35,14 @@ case "OU":
 	$width="894";
 	$back_ou="#3399ff";
 //	$table="<td width=38 >$rel_body_time</td>\n    <td width=28>$rel_body_league</td>\n    <td width=28>$rel_mid</td>\n    <td width=120>$rel_shometeam</td>\n    <td width=165>$rel_let / $rel_betou</td>\n    <td width=165>$rel_dime / $rel_betou</td>\n    <td width=130>$rel_win</td>\n";
-	$table='    <td width="38" >®É¶¡</td>
-    <td width="58">Áp·ù</td>
-    <td width="28">³õ¦¸</td>
-    <td width="120">¶¤¥î</td>
-    <td width="195">Åı½L / ª`³æ</td>
-    <td width="195">¤j¤p½L / ª`³æ</td>
-    <td width="130">¿WÄ¹</td>
-    <td width="130">³æÂù</td>';
+	$table='    <td width="38" >ï¿½É¶ï¿½</td>
+    <td width="58">ï¿½pï¿½ï¿½</td>
+    <td width="28">ï¿½ï¿½ï¿½ï¿½</td>
+    <td width="120">ï¿½ï¿½ï¿½ï¿½</td>
+    <td width="195">ï¿½ï¿½ï¿½L / ï¿½`ï¿½ï¿½</td>
+    <td width="195">ï¿½jï¿½pï¿½L / ï¿½`ï¿½ï¿½</td>
+    <td width="130">ï¿½WÄ¹</td>
+    <td width="130">ï¿½ï¿½ï¿½ï¿½</td>';
 	break;
 case "RE":
 	$caption=$rel_running;
@@ -67,18 +67,18 @@ case "PL":
 	$back_p="#3399ff";
 	$width="720";
 	//$table="<td  width=38 >$rel_body_time</td>\n    <td  width=28>$rel_body_league</td>\n    <td  width=28>$rel_mid</td>\n    <td  width=120>$rel_shometeam</td>\n    <td  width=165>$rel_let</td>\n    <td nowrap>$rel_hsthalf</td>\n    <td nowrap>$rel_running</td>\n    <td nowrap>$rel_dime</td>\n    <td nowrap>$rel_vou</td>\n    <td nowrap>$rel_running$rep_wtype_ou</td>\n      <td nowrap>$rel_running$rel_odd$rel_even</td>\n     <td nowrap>$rel_win</td>\n    <td nowrap>$rep_wtype_vm</td>\n    <td nowrap>$rel_halffull</td>\n    <td nowrap>$rel_correct</td>\n    <td nowrap>$rel_odd$rel_even</td>\n    <td nowrap>$rel_total</td>\n    <td nowrap>$rel_parlay</td>";
-	$table='    <td  width="38" >®É¶¡</td>
-    <td width="58">Áp·ù</td>
-    <td  width="28">³õ¦¸</td>
-    <td  width="120">¶¤¥î</td>
-    <td  width="165">Åı½L</td>
-    <td nowrap>ºu²y</td>
-    <td nowrap>¤j¤p½L</td>
-    <td nowrap>ºu²y¤j¤p</td>
-    <td nowrap>¿WÄ¹</td>
-    <td nowrap>ªiÁx</td>
-    <td nowrap>³æÂù</td>
-    <td nowrap>¹LÃö</td>';
+	$table='    <td  width="38" >ï¿½É¶ï¿½</td>
+    <td width="58">ï¿½pï¿½ï¿½</td>
+    <td  width="28">ï¿½ï¿½ï¿½ï¿½</td>
+    <td  width="120">ï¿½ï¿½ï¿½ï¿½</td>
+    <td  width="165">ï¿½ï¿½ï¿½L</td>
+    <td nowrap>ï¿½uï¿½y</td>
+    <td nowrap>ï¿½jï¿½pï¿½L</td>
+    <td nowrap>ï¿½uï¿½yï¿½jï¿½p</td>
+    <td nowrap>ï¿½WÄ¹</td>
+    <td nowrap>ï¿½iï¿½x</td>
+    <td nowrap>ï¿½ï¿½ï¿½ï¿½</td>
+    <td nowrap>ï¿½Lï¿½ï¿½</td>';
 	break;
 }
 ?>
@@ -169,35 +169,80 @@ function chg_league(){
  function chg_account(set_account){
 	var obj_league = document.getElementById('sel_lid');
  	parent.body_var.location="./real_wagers_var.php?uid=<?=$uid?>&rtype="+parent.stype_var+"&set_account="+set_account+"&league_id="+obj_league.value+"&page_no="+parent.pg;
- } 
+ }
+ function go_web(sw1,sw2,sw3) {
+     if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+     else{window.open('/sc_corp/trans.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+ }
 </SCRIPT>
 </head>
 
-
+<link rel=stylesheet type=text/css href="/style/nav/css/zzsc.css">
+<script src="/style/nav/js/jquery.min.js" type="text/javascript"></script>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()" onUnload="onUnload()">
-<FORM NAME="REFORM" ACTION="" METHOD=POST>
+<div id="firstpane" class="menu_list" style="float:left;padding-right: 10px;width: 230px;">
+    <p class="menu_head current" style="width: 185px;">å³æ—¶æ³¨å•</p>
+    <div style="display:block" class=menu_body >
+        <a onClick="go_web(0,0,'/sc_corp/real_wager/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">è¶³çƒ</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BK/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">ç¯®çƒ/ç¾è¶³</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TN/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">ç½‘çƒ</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VB/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æ’çƒ</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_BS/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æ£’çƒ</a>
+    </div>
+    <p class="menu_head" style="width: 185px;">æ—©é¤æ³¨å•</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_FU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">è¶³çƒæ—©é¤</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">ç¯®çƒ/ç¾è¶³æ—©é¤</a>
+        <a onClick="go_web(0,1,'/sc_corp/real_wager_BSFU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æ£’çƒæ—©é¤</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_TU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">ç½‘çƒæ—©é¤</a>
+        <a onClick="go_web(0,0,'/sc_corp/real_wager_VU/index.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æ’çƒæ—©é¤</a>
+    </div>
+    <p class="menu_head" style="width: 185px;">æ³¨å•ç®¡ç†</p>
+    <div style="display:none" class=menu_body >
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/voucher.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æµæ°´æ³¨å•</a>
+        <a onClick="go_web(1,1,'/sc_corp/wager_list/aceept.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">å¼‚å¸¸æ³¨å•</a>
+        <a onClick="go_web(1,2,'/sc_corp/wager_list/danger_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">èµ°åœ°å±é™©</a>
+        <a onClick="go_web(1,3,'/sc_corp/wager_list/real_list.php?uid=<?=$uid?>');" style="cursor:hand"><img src="/images/control/tri.gif">æ³¨å•æŸ¥è¯¢</a>
+    </div>
+</div>
+<script type=text/javascript>
+    $(document).ready(function(){
+        $("#firstpane .menu_body:eq(0)").show();
+        $("#firstpane p.menu_head").click(function(){
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+        $("#secondpane .menu_body:eq(0)").show();
+        $("#secondpane p.menu_head").mouseover(function(){
+            $(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+            $(this).siblings().removeClass("current");
+        });
+
+    });
+</script>
+<FORM NAME="REFORM" ACTION="" METHOD=POST style="margin-top:10px;float: left;">
   <table border="0" cellspacing="0" cellpadding="0">
     <tr> 
-      <td class="m_tline"> 
+      <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr> 
-            <td width="60" nowrap>&nbsp;&nbsp;½u¤W¾Ş½L:</td>
+            <td width="60" nowrap>&nbsp;&nbsp;ï¿½uï¿½Wï¿½Ş½L:</td>
             <td> 
               <select id="ltype" name="ltype" onChange="chg_ltype()" class="za_select">
-                <option value="1">´ÎA</option>
-                <option value="2">´ÎB</option>
-                <option value="3">´ÎC</option>
-                <option value="4">´ÎD</option>
+                <option value="1">ï¿½ï¿½A</option>
+                <option value="2">ï¿½ï¿½B</option>
+                <option value="3">ï¿½ï¿½C</option>
+                <option value="4">ï¿½ï¿½D</option>
               </select>
             </td>
-            <td width="65" nowrap> -- ­«·s¾ã²z:</td>
+            <td width="65" nowrap> -- ï¿½ï¿½ï¿½sï¿½ï¿½z:</td>
             <td> 
               <select id="retime" name="retime" onChange="chg_retime()" class="za_select">
-                <option value="-1" >¤£§ó·s</option>
+                <option value="-1" >ï¿½ï¿½ï¿½ï¿½s</option>
                 <option value="180" >180 sec</option>
               </select>
             </td>
-            <td nowrap> --¤é´Á:
+            <td nowrap> --ï¿½ï¿½ï¿½:
               <select id="gdate" name="gdate" onChange="chg_gdate()" class="za_select">
 <?
 for ($i=1;$i<6;$i++){
@@ -208,14 +253,14 @@ for ($i=1;$i<6;$i++){
 
               </select>
             </td>            
-            <td id="dt_now" nowrap> -- ¬üªF®É¶¡:</td>
-            <td nowrap> -- <A HREF="#" onClick="chg_page('ou');" onMouseOver="window.status='³æ¦¡'; return true;" onMouseOut="window.status='';return true;" style="background-color: #3399FF">³æ¦¡</a> 
-              &nbsp;<A HREF="#" onClick="chg_page('hou');" onMouseOver="window.status='¤W¥b³õ'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¤W¥b³õ</a> 
-              &nbsp;<A HREF="#" onClick="chg_page('pd');" onMouseOver="window.status='ªiÁx'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ªiÁx</a> 
-              <!--&nbsp;<A HREF="#" onClick="chg_page('hpd');" onMouseOver="window.status='¤W¥bªiÁx'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¤W¥bªiÁx</a> 
-              &nbsp;<A HREF="#" onClick="chg_page('f');" onMouseOver="window.status='¥b¥ş³õ'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¥b¥ş³õ</a--> 
-              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='Á`±o¤À'; return true;" onMouseOut="window.status='';return true;"style="background-color:">Á`±o¤À</a> 
-              &nbsp;<A HREF="#" onClick="chg_page('par');" onMouseOver="window.status='¹LÃö'; return true;" onMouseOut="window.status='';return true;"style="background-color:">¹LÃö</a> 
+            <td id="dt_now" nowrap> -- ï¿½ï¿½ï¿½Fï¿½É¶ï¿½:</td>
+            <td nowrap> -- <A HREF="#" onClick="chg_page('ou');" onMouseOver="window.status='ï¿½æ¦¡'; return true;" onMouseOut="window.status='';return true;" style="background-color: #3399FF">ï¿½æ¦¡</a> 
+              &nbsp;<A HREF="#" onClick="chg_page('hou');" onMouseOver="window.status='ï¿½Wï¿½bï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½Wï¿½bï¿½ï¿½</a> 
+              &nbsp;<A HREF="#" onClick="chg_page('pd');" onMouseOver="window.status='ï¿½iï¿½x'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½iï¿½x</a> 
+              <!--&nbsp;<A HREF="#" onClick="chg_page('hpd');" onMouseOver="window.status='ï¿½Wï¿½bï¿½iï¿½x'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½Wï¿½bï¿½iï¿½x</a> 
+              &nbsp;<A HREF="#" onClick="chg_page('f');" onMouseOver="window.status='ï¿½bï¿½ï¿½ï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½bï¿½ï¿½ï¿½ï¿½</a--> 
+              &nbsp;<A HREF="#" onClick="chg_page('eo');" onMouseOver="window.status='ï¿½`ï¿½oï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½`ï¿½oï¿½ï¿½</a> 
+              &nbsp;<A HREF="#" onClick="chg_page('par');" onMouseOver="window.status='ï¿½Lï¿½ï¿½'; return true;" onMouseOut="window.status='';return true;"style="background-color:">ï¿½Lï¿½ï¿½</a> 
             </td>
           </tr>
         </table>
@@ -228,13 +273,13 @@ for ($i=1;$i<6;$i++){
   </table>
   <table height="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td width='70'><font color="#000099">&nbsp;&nbsp;³æ¦¡</font></td>
-		<td>Æ[¬İ¤è¦¡&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
-        		<option value="0">¥ş³¡</option>
-			<option value="1">¦Û¤v</option>
-			<!--<option value="2">¤½¥q</option>-->
+		<td width='70'><font color="#000099">&nbsp;&nbsp;ï¿½æ¦¡</font></td>
+		<td>ï¿½[ï¿½İ¤è¦¡&nbsp;<select id="set_account" name="set_account" onChange="chg_account(this.value);" class="za_select">
+        		<option value="0">ï¿½ï¿½ï¿½ï¿½</option>
+			<option value="1">ï¿½Û¤v</option>
+			<!--<option value="2">ï¿½ï¿½ï¿½q</option>-->
 		</select></td>
-		<td>&nbsp;¿ï¾ÜÁp·ù <span id="show_h"></span></td>
+		<td>&nbsp;ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ <span id="show_h"></span></td>
 		<td width='450'>&nbsp;&nbsp;<span id="pg_txt"></span></td>
 	</tr>
   </table>
@@ -257,12 +302,12 @@ for ($i=1;$i<6;$i++){
 </span>
 <span id="bodyH" style="position:absolute; display: none">
         <select id="sel_lid" name="sel_lid" onChange="chg_league();" class="za_select">
-        <option value="">¥ş³¡</option>
+        <option value="">ï¿½ï¿½ï¿½ï¿½</option>
 		*SHOW_H*
        	</select>
 </span>
 <span id="bodyP" style="position:absolute; display: none">
-  ­¶¦¸:&nbsp;*SHOW_P*
+  ï¿½ï¿½ï¿½ï¿½:&nbsp;*SHOW_P*
 </span>
 
 </body>

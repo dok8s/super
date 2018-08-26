@@ -159,7 +159,7 @@ file://-->
 </head>
 <body _oncontextmenu='window.event.returnValue=false' bgcolor='#FFFFFF' text='#000000' leftmargin='0' topmargin='0' onLoad='onLoad();beginrefresh()'>
 <form name="myFORM" method="post" action="" >
- <table width='773' border='0' cellspacing='0' cellpadding='0'>
+ <table width='773' border='0' cellspacing='0' cellpadding='0' style="margin-left:20px;margin-bottom: 10px;margin-top: 10px;">
     <tr>
       <td class='m_tline' width='746'>&nbsp;<font color='#CC0000'>代理日志</font>&nbsp;&nbsp;&nbsp; <input name=button type=button class='za_button' onclick='reload()' value='更新'>&nbsp;&nbsp;&nbsp;
 	 <select name='level' onChange="document.myFORM.submit();"  class='za_select'>
@@ -169,7 +169,6 @@ file://-->
           </select>
         <span id='timeinfo'></span> -- 20分钟内在线人数据(<?=count($rts)?>) -- 代理的历史日志:<INPUT TYPE="text" size=10 NAME="so_log_name"> <input name=button type=button onclick='so_log()' value='搜索'> -- <a href='javascript:history.go( -1 );'>回上一页</a>
       </td>
-      <td width='34'><img src='/images/control/top_04.gif' width='30' height='24'></td>
     </tr>
   </table>
   <table width='774' border='0' cellspacing='0' cellpadding='0'>
@@ -181,7 +180,7 @@ file://-->
     </tr>
   </table>
 
-<table id='glist_table' border='0' cellspacing='1' cellpadding='0'  bgcolor='006255' class='m_tab' width='1030'>
+<table id='glist_table' border='0' cellspacing='1' cellpadding='0'  bgcolor='006255' class='m_tab' width='1030'style="margin-left:20px;margin-bottom: 10px;">
   <tr class='m_title_ft'>
     <td align='middle' width='80'> 代理商名称</td>
     <td align='middle' width='130'>活动时间</td>

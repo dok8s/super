@@ -11,6 +11,22 @@ exit;
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+    <link rel="stylesheet" href="../css/loader.css" type="text/css">
+    <script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/calendar.css">
+    <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+    <link rel="stylesheet" href="/style/home.css" type="text/css">
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 <style type="text/css">
 <!--
 .m_title_set {  background-color: #86C0A6; text-align: center}
@@ -18,26 +34,19 @@ exit;
 </style>
 </head>
 
-<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF">
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" style="padding-left:20px;padding-top:10px">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
 <table width="780" border="0" cellspacing="0" cellpadding="0">
   <form name="LAYOUTFORM" action="" method=POST >
     <input type="HIDDEN" name="active" value="0">
-    <tr> 
-      <td class="m_tline"> 
-        <table border="0" cellspacing="0" cellpadding="0" >
-          <tr> 
-            <td width="85" >&nbsp;&nbsp;币值</td>
-          </tr>
-        </table>
-      </td>
-      <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-    </tr>
-    <tr> 
-      <td colspan="2" height="4"></td>
-    </tr>
   </form>
 </table>
-  <table width="600" border="0" cellspacing="1" cellpadding="0"  bgcolor="4B8E6F" class="m_tab">
+  <table width="1024" border="0" cellspacing="1" cellpadding="0"  bgcolor="4B8E6F" class="m_tab" >
   <tr class="m_title_set"> 
     <td width="115" >货币名称</td>
     <td width="115">货币代码</td>

@@ -22,10 +22,22 @@ $edit=$row['edit'];
 $langx='zh-cn';
 require ("../../member/include/traditional.$langx.inc.php");
 
-$result = mysql_db_query( $dbname, "select * from web_system" );
-$setrow = mysql_fetch_array( $result );
-$setdata = @unserialize($setrow['setdata']);
-$setdata['opendel']!=1 && $mem_delete='';
+$sql = "select id,subuser,agname,subname,status, setdata,edit from web_super where Oid='$uid'";
+$result = mysql_query($sql);
+$row = mysql_fetch_array($result);
+$cou=mysql_num_rows($result);
+if($cou==0){
+    echo "<script>window.open('$site/index.php','_top')</script>";
+    exit;
+}
+
+$agname=$row['agname'];
+$edit=intval($row['edit']);
+$setdata = @unserialize($row['setdata']);
+//$result = mysql_db_query( $dbname, "select * from web_system" );
+//$setrow = mysql_fetch_array( $result );
+//$setdata = @unserialize($setrow['setdata']);
+//$setdata['opendel']!=1 && $mem_delete='';
 
 $enable=$_REQUEST["enable"];
 $enabled=$_REQUEST["enabled"];
@@ -135,6 +147,7 @@ if ($active==2){
 	
 	$mysql="insert into  agents_log (M_DateTime,M_czz,M_xm,M_user,M_jc,Status) values('".date("Y-m-d H:i:s")."','$agname','$xm','$agent_name','股东',2)";
 	mysql_query($mysql) or die ("操作失败!");
+    $level=$_REQUEST['level']?$_REQUEST['level']:1;
 }
 ?>
 <html>
@@ -142,6 +155,23 @@ if ($active==2){
 <title>main</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a1.css" type="text/css">
+<link rel="stylesheet" href="/style/control/announcement/a2.css" type="text/css">
+<link rel="stylesheet" href="../css/loader.css" type="text/css">
+<script src="/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/js/ClassSelect_ag.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="/style/control/control_main.css" type="text/css">
+    <link rel="stylesheet" href="/style/control/calendar.css">
+    <link rel="stylesheet" href="/style/control/control_main1.css" type="text/css">
+    <link rel="stylesheet" href="/style/home.css" type="text/css">
+    <script type="text/javascript">
+        // 等待所有加载
+        $(window).load(function(){
+            $('body').addClass('loaded');
+            $('#loader-wrapper .load_title').remove();
+        });
+    </script>
 <style type="text/css">
 <!--
 .m_title_sucor {  background-color: #429CCD; text-align: center}
@@ -150,28 +180,49 @@ if ($active==2){
 
 <SCRIPT language=javaScript src="/js/agents<?=$body_js?>.js" type=text/javascript></SCRIPT>
 <SCRIPT language=javaScript>
-<!--
- function onLoad()
- {
-  var obj_sagent_id = document.getElementById('super_agents_id');
-  obj_sagent_id.value = '';
-  var obj_enable = document.getElementById('enable');
-  obj_enable.value = '<?=$enable?>';
-  var obj_page = document.getElementById('page');
-  obj_page.value = '<?=$page?>';
-  var obj_sort=document.getElementById('sort');
-  obj_sort.value='<?=$sort?>';
-  var obj_orderby=document.getElementById('orderby');
-  obj_orderby.value='<?=$orderby?>';
- }
-// -->
+    var uid='<?=$uid?>';
+    function ch_level(i)
+    {
+        if(i === 1) {
+            self.location = '/sc_corp/super_agent/body_super_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 2) {
+            self.location = '/sc_corp/agents/su_agents.php?uid='+uid+'&level='+i;
+        } else if(i === 3) {
+            self.location = '/sc_corp/members/ag_members.php?uid='+uid+'&level='+i;
+        } else if(i === 5) {
+            self.location = '/sc_corp/wager_list/wager_add.php?uid='+uid+'&level='+i;
+        } else if(i === 6) {
+            self.location = '/sc_corp/wager_list/wager_hide.php?uid='+uid+'&level='+i;
+        } else  {
+            self.location = '/sc_corp/su_subuser.php?uid='+uid+'&level='+i;
+        }
+
+    }
 </SCRIPT>
 </head>
 <body oncontextmenu="window.event.returnValue=false" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" vlink="#0000FF" alink="#0000FF" onLoad="onLoad()";>
-<form name="myFORM" action="super_corprator.php?uid=<?=$uid?>" method=POST>
-<table width="840" border="0" cellspacing="0" cellpadding="0">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+    <div class="load_title">正在加载...</div>
+</div>
+<div id="top_nav_container" name="fixHead" class="top_nav_container_ann" >
+    <div id="general_btn" class="<? if ($level == 1) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(1);">总代理</div>
+    <div id="important_btn" class="<? if ($level == 2) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(2);">代理</div>
+    <div id="personal_btn" class="<? if ($level == 3) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(3);">会员</div>
+    <div id="general_btn1" class="<? if ($level == 4) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(4);">子帐号</div>
+    <? if($setdata['d0_wager_add']==1){ ?>
+    <div id="important_btn1" class="<? if ($level == 5) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(5);">添单帐号</div>
+    <? } ?>
+    <? if($setdata['d0_wager_hide']==1){ ?>
+    <div id="personal_btn1" class="<? if ($level == 6) {echo 'nav_btn_on';} else {echo 'nav_btn';}?>" onclick="ch_level(6);">隐单帐号</div>
+    <? } ?>
+</div>
+<form name="myFORM" action="super_corprator.php?uid=<?=$uid?>" method=POST style="padding-top: 62px;">
+<table width="840" border="0" cellspacing="0" cellpadding="0" style="margin-left:20px;margin-bottom: 10px;">
   <tr>
-    <td class="m_tline">
+    <td class="">
         <table border="0" cellspacing="0" cellpadding="0" >
           <tr>
             <td>&nbsp;&nbsp;<?=$cor_manage?>:</td>
@@ -206,10 +257,6 @@ if ($active==2){
           </tr>
         </table>
     </td>
-    <td width="30"><img src="/images/control/zh-tw/top_04.gif" width="30" height="24"></td>
-  </tr>
-  <tr>
-    <td colspan="2" height="4"></td>
   </tr>
 </table>
 <?
@@ -218,7 +265,7 @@ $result = mysql_query( $sql);
 $cou=mysql_num_rows($result);
 if ($cou==0){
 ?>
-  <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="0E75B0" class="m_tab">
+  <table width="780" border="0" cellspacing="1" cellpadding="0"  bgcolor="0E75B0" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
     <tr class="m_title">
       <td height="30" class="m_title_sucor" >
         目前无任何股东
@@ -228,7 +275,7 @@ if ($cou==0){
 <?
 }else{
  ?>
-  <table width="" border="0" cellspacing="1" cellpadding="0"  bgcolor="0E75B0" class="m_tab">
+  <table width="" border="0" cellspacing="1" cellpadding="0"  bgcolor="0E75B0" class="m_tab" style="margin-left:20px;margin-bottom: 10px;">
     <tr class="m_title_sucor"  bgcolor="#429CCD">
       <td width="80"><?=$rcl_corp?><?=$sub_name?></td>
       <td width="80"><?=$rcl_corp?><?=$sub_user?></td>
@@ -293,6 +340,12 @@ if ($cou==0){
 <!----------------------赋梛弝敦---------------------------->
 </body>
 </html>
+<script>
+    function go_web(sw1,sw2,sw3) {
+        if(sw1==1 && sw2==5){Go_Chg_pass(1);}
+        else{window.open('trans.php?sw1='+sw1+'&sw2='+sw2+'&sw3='+sw3,'main');}
+    }
+</script>
 <?
 mysql_close();
 ?>
