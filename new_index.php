@@ -5,7 +5,7 @@
 <!--<link href="style/index.css" rel="stylesheet" type="text/css">-->
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">s
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/form-elements.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -53,6 +53,9 @@ function chk_type(){
                     <div class="form-top">
                         <div class="form-top-left">
                             <h3>Login to our site</h3>
+                                <a href="./new_index.php?langx=zh-cn"><span name="link_cn" class="lan_word_on">简体版</span></a>
+                                |
+                                <a href="./xn/new_index.php?langx=vi_VN"><span name="link_us" class="lan_word">Người việt </span></a>
                         </div>
                         <div class="form-top-right">
                             <i class="fa fa-lock"></i>

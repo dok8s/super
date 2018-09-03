@@ -1,0 +1,33 @@
+TD.cal {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #d3d3d3
+}
+SELECT.month {
+	FONT-SIZE: 11px; WIDTH: 85px; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Sans-serif
+}
+INPUT.year {
+	FONT-SIZE: 11px; WIDTH: 30px; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Sans-serif
+}
+TD.calDaysColor {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #000000
+}
+TD.calWeekend {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #c0c0c0
+}
+TD.calBgColor {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #d3d3d3
+}
+.calBorderColor {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #a9a9a9
+}
+TD.calHighlightColor {
+	FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Arial,Helvetica,Sans-serif; BACKGROUND-COLOR: #ffffcc
+}
+A.cal {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: Arial,Helvetica,Sans-serif; TEXT-DECORATION: none
+}
+A.cal:hover {
+	FONT-SIZE: 11px; COLOR: #ff0000; FONT-FAMILY: Arial,Helvetica,Sans-serif; TEXT-DECORATION: none
+}
+.disabled {
+	FONT-SIZE: 11px; COLOR: #808080; FONT-FAMILY: Arial,Helvetica,Sans-serif; TEXT-DECORATION: none
+}

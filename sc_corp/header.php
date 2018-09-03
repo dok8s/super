@@ -7,7 +7,7 @@ exit;
 }
 require ("../member/include/config.inc.php");
 $uid=$_REQUEST["uid"];
-
+$langx=$_REQUEST["langx"];
 $sql = "select id,subuser,agname,subname,status, setdata,edit from web_super where Oid='$uid'";
 $result = mysql_query($sql);
 $row = mysql_fetch_array($result);
@@ -376,45 +376,6 @@ function Go_Chg_pass(a){
                             <? if($setdata['d0_mem_online_show']==1){ ?>
                                 <div id="online_mem" class="online_btn" title=""><a href="system/memlog.php?uid=<?=$uid?>" target="main"><span style='color:#1e1e1e'>会员在线</span></a></div>
                             <? } ?>
-<!--                            <div class="header-nav">-->
-<!--                                <div class="contain">-->
-<!--                                    <ul class="nav-list">-->
-<!--                                        <li>-->
-<!--                                            <a href="#">出境游<span class="trig"></span></a>-->
-<!--                                            <ul>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">当地玩乐</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                                <li><a href="#">游轮</a></li>-->
-<!--                                                <li><a href="#">出境首页</a></li>-->
-<!--                                            </ul>-->
-<!--                                        </li>-->
-<!--                                        <li>-->
-<!--                                            <a href="#">国内游<span class="trig"></span></a>-->
-<!--                                            <ul>-->
-<!--                                                <li><a href="#">国内长途</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">周边跟团</a></li>-->
-<!--                                                <li><a href="#">自驾游</a></li>-->
-<!--                                                <li><a href="#">亲子游</a></li>-->
-<!--                                                <li><a href="#">酒店</a></li>-->
-<!--                                            </ul>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </div>-->
-<!--                                <div class="second-bg"></div>-->
-<!--                            </div>-->
                             <div id="new_url" class="contact_us">[
                                 <a style="color:#b8a6a6;" href="/sc_corp/logout.php?uid=<?=$uid?>" target="_top" onMouseOver="window.status='登出'; return true;" onMouseOut="window.status='';return true;">登出</a>
                                 ]
@@ -428,11 +389,11 @@ function Go_Chg_pass(a){
                     <div class="navbox">
                         <div class="nav">
 
-                            <li class="drop-menu-effect"><a href="/sc_corp/body_home.php?uid=<?$uid?>&langx=<?=$langx?>"
+                            <li class="drop-menu-effect"><a href="/sc_corp/body_home.php?uid=<?=$uid?>&langx=<?=$langx?>"
                                                             target="main" onMouseOver="window.status='首页'; return true;" onMouseOut="window.status='';return true;">
                                     <span>首页</span></a>
                             </li>
-                            <li class="drop-menu-effect"><a href="/sc_corp/announcement/get_an.php?uid=<?$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
+                            <li class="drop-menu-effect"><a href="/sc_corp/announcement/get_an.php?uid=<?=$uid?>&langx=<?=$langx?>" target="main" onMouseOver="window.status='公告内容'; return true;" onMouseOut="window.status='';return true;"><span>公告内容</span></a>
                             </li>
 
                             <li class="drop-menu-effect"> <a href="/sc_corp/other_set/show_result.php?uid=<?=$uid?>"

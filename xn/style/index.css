@@ -1,0 +1,51 @@
+BODY {
+	LEFT: 0px; BACKGROUND-IMAGE: url(../images/2004/index_bg.gif); MARGIN: 0px; CLIP: rect(0px auto auto auto); FONT-FAMILY: Arial, Helvetica, sans-serif; TOP: 0px
+}
+.main_bg {
+	BACKGROUND-IMAGE: url(../images/2004/index_tabbg.jpg); WIDTH: 100%; BACKGROUND-REPEAT: repeat-x
+}
+.main {
+	BACKGROUND-POSITION: left top; PADDING-LEFT: 332px; BACKGROUND-IMAGE: url(/images/2004/index_logo.jpg); MARGIN-BOTTOM: 100px; WIDTH: 100%; PADDING-TOP: 0px; BORDER-BOTTOM: #676767 8px solid; BACKGROUND-REPEAT: no-repeat; HEIGHT: 155px
+}
+.main H1 {
+	BACKGROUND-POSITION: left 50%; PADDING-LEFT: 20px; FONT-WEIGHT: normal; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/2004/arrow_0.gif); MARGIN: 0px; COLOR: #ffffff; BACKGROUND-REPEAT: no-repeat; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.main H2 {
+	BACKGROUND-POSITION: left 15px; PADDING-LEFT: 20px; FONT-WEIGHT: normal; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(../images/2004/index_login.gif); MARGIN: 0px; COLOR: #ffffff; BACKGROUND-REPEAT: no-repeat; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+H3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; MARGIN: 0px; COLOR: #ffffff; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.main P {
+	BACKGROUND-POSITION: left 10px; PADDING-LEFT: 20px; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/images/2004/arrow_4.gif); MARGIN: 0px; COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+P INPUT {
+	FONT-SIZE: 12px; WIDTH: 80px; FONT-FAMILY: Arial; HEIGHT: 20px
+}
+.login {
+	MARGIN-LEFT: 15px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.lang {
+	WIDTH: 100%; BORDER-BOTTOM: #720106 1px solid; HEIGHT: 50px; BACKGROUND-COLOR: #b91802
+}
+.link {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: 50% top; MARGIN-TOP: 25px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: url(/images/2004/index_top2.gif); PADDING-BOTTOM: 0px; VERTICAL-ALIGN: bottom; PADDING-TOP: 0px; BACKGROUND-REPEAT: repeat-x
+}
+.link UL {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.link LI {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.link IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+.code {
+	BORDER-RIGHT: #cc3300 2px outset; PADDING-RIGHT: 5px; BORDER-TOP: #ff6633 2px outset; MARGIN-TOP: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #cc3300 2px outset; WIDTH: 350px; PADDING-TOP: 5px; BORDER-BOTTOM: #ff6633 2px outset; BACKGROUND-COLOR: #ae0201
+}
+.number {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #0000ff; TEXT-ALIGN: center
+}
